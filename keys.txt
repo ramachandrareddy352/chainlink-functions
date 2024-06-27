@@ -1,0 +1,16 @@
+ETHEREUM_SEPOLIA_RPC_URL = https://eth-sepolia.g.alchemy.com/v2/
+ETHERSCAN_API_KEY = 
+PRIVATE_KEY = 
+
+SIMULATE_NUMBER = 1003757
+FUNCTIONS_CONSUMER = 0xBF6ADb9C154Eb708De90B6a9d12848b090322F92 
+FUNCTIONS_CONSUMER_TRANSACTION_HASH = 0x594d4c7fd3b395b7215da5bc246e1154c718f2752faaf4b090f233a7e8e7562a
+
+SUB_ID = 
+
+1) set all the encrypted data
+2) Simulate script =>  npx hardhat functions-simulate-script
+3) Deploy the contract on the blockchain => npx hardhat functions-deploy-consumer --network polygonMumbai --verify true
+4) Create the chainlink scription => npx hardhat functions-sub-create --network polygonMumbai --amount 15 --contract $CONTRACT_ADDR
+5) You can fund the subscription => npx hardhat functions-sub-fund --network polygonMumbai --amount 10 --subid $SUB_ID
+6) make the transaction to send request the chainlink DOM to get the result => npx hardhat functions-request --network polygonMumbai --contract $CONTRACT_ADDR --subid $SUB_ID --simulate true
